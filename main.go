@@ -12,9 +12,9 @@ func main() {
 	app.Version = "0.0.1"
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
-			Name: "address, a",
+			Name:  "address, a",
 			Usage: "Listen address",
-			Value: "localhost",
+			Value: "0.0.0.0",
 		},
 		cli.IntFlag{
 			Name:  "port, p",

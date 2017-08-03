@@ -1,12 +1,11 @@
 package service
 
 import (
-	"gopkg.in/urfave/cli.v1"
-	"fmt"
-	"net/http"
 	"encoding/json"
+	"fmt"
+	"gopkg.in/urfave/cli.v1"
+	"net/http"
 )
-
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	msg := map[string]string{"message": "pong"}
@@ -23,6 +22,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func Serve(context *cli.Context) error {
 	http.HandleFunc("/", handler)
 	addr := fmt.Sprintf("%s:%d", context.String("address"), context.Int("port"))
+	fmt.Printf("Starting serve at %s\n", addr)
 	http.ListenAndServe(addr, nil)
 	return nil
 }
